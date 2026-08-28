@@ -13,7 +13,7 @@ export const Navbar: React.FC = () => {
 
   const handleLogout = async () => {
     await logout();
-    navigate('/');
+    navigate('/', { replace: true });
   };
 
   const handlePasswordChange = async (e: React.FormEvent) => {

@@ -29,6 +29,9 @@ export const AdminAnalytics: React.FC = () => {
       setSubmissions(sData || []);
     } catch (err) {
       console.error('Error fetching analytics:', err);
+      setTeams([]);
+      setMembers([]);
+      setSubmissions([]);
     } finally {
       setLoading(false);
     }

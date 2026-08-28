@@ -44,10 +44,10 @@ export async function validateSIHSubmission(file: File): Promise<SIHValidationRe
     summary: '',
   };
 
-  if (ext !== 'pdf' && ext !== 'pptx' && ext !== 'ppt') {
+  if (ext !== 'pdf') {
     report.status = 'INVALID';
-    report.issues.push('Invalid file format. SIH official guidelines require submission in PDF or PPTX format.');
-    report.summary = 'File format not supported.';
+    report.issues.push('Invalid file format. Only PDF files (.pdf) are allowed as per SIH guidelines. PPT / PPTX formats are not permitted.');
+    report.summary = 'File format not supported. PDF only allowed.';
     return report;
   }
 

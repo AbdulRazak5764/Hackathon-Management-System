@@ -726,8 +726,10 @@ const defaultSeedTeams: AdminTeamRecord[] = [
         })();
       }
 
-      setMsg({ type: 'success', text: '✓ Review status & remarks saved & synced successfully!' });
-      alert(`✓ Review Status & Remarks Successfully Saved and Synced for team "${selectedTeam.team_name}"!`);
+      const statusLabel = reviewStatus === 'VALID' ? 'VALID / APPROVED' : reviewStatus === 'NEEDS_CORRECTION' ? 'NEEDS CORRECTION' : reviewStatus === 'INVALID' ? 'INVALID FORMAT' : 'UNDER REVIEW';
+      const successText = `✓ Team "${selectedTeam.team_name}" successfully reviewed & status updated to [ ${statusLabel} ]!`;
+      setMsg({ type: 'success', text: successText });
+      alert(successText);
 
       // Update selected team drawer view
       setSelectedTeam(prev => prev ? {

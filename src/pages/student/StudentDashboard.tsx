@@ -531,7 +531,7 @@ export const StudentDashboard: React.FC = () => {
       setValidationReport(report);
       setUploadedFileName(actualFileName);
       setUploadedAt(new Date().toISOString());
-      setSubmissionStatus(report.status);
+      setSubmissionStatus('UNDER_REVIEW');
 
       // Upload file to Supabase Private Bucket
       let filePath = `${user?.id || 'guest'}/${Date.now()}_${actualFileName}`;
@@ -556,7 +556,7 @@ export const StudentDashboard: React.FC = () => {
             file_type: 'application/pdf',
             file_size: file.size,
             detected_slide_count: report.slideCount,
-            validation_status: report.status,
+            validation_status: 'UNDER_REVIEW',
             validation_issues: {
               issues: report.issues,
               detectedHeaders: report.detectedHeaders,
@@ -571,10 +571,10 @@ export const StudentDashboard: React.FC = () => {
           setSubmissionId(subData.id);
         }
 
-        // Update Team Submission Status
+        // Update Team Submission Status to UNDER_REVIEW
         await supabase
           .from('teams')
-          .update({ submission_status: report.status, updated_at: new Date().toISOString() })
+          .update({ submission_status: 'UNDER_REVIEW', updated_at: new Date().toISOString() })
           .eq('id', teamId);
       }
 
@@ -670,9 +670,9 @@ export const StudentDashboard: React.FC = () => {
     }
 
     setSaving(true);
-         const targetTeamId = teamId || `team-${Date.now()}`;
+    const targetTeamId = teamId || `team-${Date.now()}`;
     const cleanTeamName = teamName.trim();
-    const finalStatus = submissionStatus === 'DRAFT' ? 'SUBMITTED' : submissionStatus;
+    const finalStatus = 'UNDER_REVIEW';
 
     // 1. Instant 0ms Local Storage Persist
     const localPayload = {

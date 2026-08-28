@@ -727,6 +727,7 @@ const defaultSeedTeams: AdminTeamRecord[] = [
       }
 
       setMsg({ type: 'success', text: '✓ Review status & remarks saved & synced successfully!' });
+      alert(`✓ Review Status & Remarks Successfully Saved and Synced for team "${selectedTeam.team_name}"!`);
 
       // Update selected team drawer view
       setSelectedTeam(prev => prev ? {
@@ -1197,11 +1198,28 @@ const defaultSeedTeams: AdminTeamRecord[] = [
                 />
               </div>
 
+              {msg && (
+                <div
+                  className={`p-3.5 rounded-xl text-xs font-bold flex items-center space-x-2 shadow-lg transition-all ${
+                    msg.type === 'success'
+                      ? 'bg-emerald-950 text-emerald-300 border border-emerald-500 shadow-emerald-950/50'
+                      : 'bg-rose-950 text-rose-300 border border-rose-500 shadow-rose-950/50'
+                  }`}
+                >
+                  {msg.type === 'success' ? (
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                  ) : (
+                    <AlertTriangle className="w-5 h-5 text-rose-400 flex-shrink-0" />
+                  )}
+                  <span>{msg.text}</span>
+                </div>
+              )}
+
               <div className="grid grid-cols-2 gap-3">
                 <button
                   onClick={handleSaveReview}
                   disabled={savingReview}
-                  className="py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 transition-all disabled:opacity-50"
+                  className="py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 transition-all disabled:opacity-50 hover:scale-105"
                 >
                   {savingReview ? 'Saving Review...' : 'Save Review & Sync'}
                 </button>

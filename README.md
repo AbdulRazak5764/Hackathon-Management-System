@@ -55,12 +55,6 @@ Built specifically for **Chaitanya (Deemed to be University), Hyderabad**, the p
 
 ---
 
-## 🔐 Credentials & Access
-
-| Portal | Login Email | Password | Access Level |
-| :--- | :--- | :--- | :--- |
-| **SPOC Admin Portal** | `rpkumar2024@chaitanya.edu.in` | `SIH@2026` | Full Admin Privileges (Review, Download, Export, Delete) |
-| **Student Portal** | Any registered student email | Password set on signup | Student Team Registration & Submission |
 
 ---
 

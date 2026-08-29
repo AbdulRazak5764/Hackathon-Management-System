@@ -76,12 +76,6 @@ Built specifically for **Chaitanya (Deemed to be University), Hyderabad**, the p
    ```bash
    npm install
    ```
-
-3. **Configure Environment Variables**:
-   Create a `.env` file in the root directory:
-   ```env
-   VITE_SUPABASE_URL=https://gcutaskxofmwgahnogmo.supabase.co
-   VITE_SUPABASE_ANON_KEY=sb_publishable_XdHdRmHuF2DlX5mGyH5TyA_9JzFQGK6
    ```
 
 4. **Run Dev Server**:
